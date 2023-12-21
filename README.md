@@ -1,6 +1,8 @@
 ## About
 
-This repository includes scripts to process and analyze images from the original 228 individuals in the [Aphasia Recovery Cohort (ARC) Dataset](https://openneuro.org/datasets/ds004512/), as well as the resulting images derived from the processing. The goal of this repository is to provide a minimal starting point for analyzing the ARC. This acute dataset complements the [Stroke Outcome Optimization Project](https://github.com/neurolabusc/StrokeOutcomeOptimizationProjectDemo) from individuals with chronic impairments.  This educational resource illustrates how to process clinical datasets stored in the [BIDS](https://bids.neuroimaging.io/) format. Our hope is that more sophisticated methods can improve clinical lesion mapping, spatial processing and prediction. The current repository reflects the first tranche of data, with upcoming (hidden) releases allowing fair competitions future refinements.
+This repository includes scripts to process and analyze images from the original 228 individuals in the [Aphasia Recovery Cohort (ARC) Dataset](https://openneuro.org/datasets/ds004512/), as well as the resulting images derived from the processing. The goal of this repository is to provide a minimal starting point for analyzing the ARC. This chronic dataset complements the acute data from the [Stroke Outcome Optimization Project (SOOP)](https://github.com/neurolabusc/StrokeOutcomeOptimizationProjectDemo).  This educational resource illustrates how to process clinical datasets stored in the [BIDS](https://bids.neuroimaging.io/) format. Our hope is that more sophisticated methods can improve clinical lesion mapping, spatial processing and prediction. The current repository reflects the first tranche of data, with upcoming (hidden) releases allowing fair competitions future refinements.
+
+![lesion incidence resulting from nii2meanLesion and nii2meanT1](LesionIncidence.png)
 
 ### Scripts
 
@@ -36,7 +38,7 @@ Neural Network - Correlation (R): 0.6956690572689396, p-value: 5.045103798777254
 SVR - Correlation (R): 0.6798267891041169, p-value: 5.302344539620752e-32
 ```
 
-![lesion incidence resulting from nii2meanLesion and nii2meanT1](LesionIncidence.png)
+![Prediction of Western Aphasia Battery](scatterplot.png)
 
 ### NIFTI
 
