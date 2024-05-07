@@ -24,19 +24,62 @@ The Python scripts assume the Matlab scripts have been run. Each file will requi
  - `merge_artery_tsv.py` concatenates the files `participants_cleaned.tsv` and `artery_cleaned.tsv` to create `merged_artery_participants.tsv`.
  - `deep_learn.py` : uses lesion and patient age to infer patient's impairment on the Western Aphasia Battery.
 
-By default, the `deep_learn.py` should report both neural network and support vector regression predictions:
+By default, the `deep_learn.py` should report both neural network and support vector regression predictions.
+
+### RUNNING THE DEEP LEARNING SCRIPT ON THIS DATASET TO PREDICT WAB-AQ
+
+This package includes a script that reports both neural network and support vector regression predictions called _deep_learn.py_.
+
+Follow these steps to execute the script (macOS Terminal or Unix terminal):
+
+1. Download this repository as a zip file and unzip it to the directory of your choice (or use git clone if you prefer).
+
+2. Open a terminal, change directories into the /Scripts directory of the downloaded repository (i.e. the directory in which deep_learn.py is located).
+
+3. Make sure you have Python installed, this command should return the version if you have it installed:
+```
+python --version
+```
+
+4. Copy and paste the following into the terminal to ensure all necessary prerequisite dependencies are installed:
+```
+pip install pandas
+pip install numpy
+pip install tensorflow
+pip install scikit-learn
+pip install scipy
+pip install statsmodels
+```
+*Take note if this results in any error messages as all of these are REQUIRED to run the script!!!
+     
+5. Within your terminal change directories to the /Scripts folder where _deep_learn.py_ is located.
+
+6. Type python _deep_learn.py_ into the terminal and hit ENTER
+
+```
+python deep_learn.py
+```
+
+7. You should see output like this:
+   
+   1/1 [==============================] - 0s 22ms/step
+   
+   1/1 [==============================] - 0s 13ms/step
+   
+   1/1 [==============================] - 0s 13ms/step
+   
+   1/1 [==============================] - 0s 13ms/step
+   
+   ...
+   
+9. Be patient, this will take a couple of minutes to run! When it finishes you should see this output which represents model performance:
 
 ```
 Neural Network - Correlation (R): 0.6295585315625406, p-value: 2.3596445566493573e-26
 SVR - Correlation (R): 0.6536509849052542, p-value: 6.30552168042444e-29
 ```
 
-Note that slightly better numerical performance can be achieved by uncommenting the line `columns_to_keep = ['age_at_stroke', 'lesion_volume', rv]`. This constrained model ignores regional injury, and reflects the [potency of lesion volume to predict generalized impairment measures](https://pubmed.ncbi.nlm.nih.gov/37741168/). From first principles, one might expect additional features to improve performance as the dataset size is increased and more specific behavioral measures are provided.  The performance of this simpler model is:
-
-```
-Neural Network - Correlation (R): 0.6956690572689396, p-value: 5.045103798777254e-34
-SVR - Correlation (R): 0.6798267891041169, p-value: 5.302344539620752e-32
-```
+*Note that slightly better numerical performance can be achieved by uncommenting the line `columns_to_keep = ['age_at_stroke', 'lesion_volume', rv]`. This constrained model ignores regional injury, and reflects the [potency of lesion volume to predict generalized impairment measures](https://pubmed.ncbi.nlm.nih.gov/37741168/). From first principles, one might expect additional features to improve performance as the dataset size is increased and more specific behavioral measures are provided.  
 
 ![Prediction of Western Aphasia Battery](scatterplot.png)
 
